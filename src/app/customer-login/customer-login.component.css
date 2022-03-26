@@ -1,0 +1,47 @@
+.form-control {
+    border-radius: 2px;
+    width: 500px;
+    margin-left: 10px;
+}
+.search-icon {
+
+    position: absolute;
+    z-index: 10;
+    right: 55%;
+}
+
+.navbar align-items-center d-flex{
+    height: 40px;
+}
+
+.container-fluid{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height:40px;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: content-box;
+    border: 1px solid rgba(57, 27, 139, 0.2);
+    border-radius: .15rem;
+    background-color: rgba(221, 160, 221, 0.666);
+    font-size:large;
+}
+
+
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+    
+}
+
+.item a:hover {
+    color: blue;
+}
+
+a#cart1:hover{
+    color: yellow;
+}
+
+

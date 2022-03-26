@@ -1,0 +1,70 @@
+
+<header>
+    
+    <div class="navbar align-items-center d-flex " style="background-color: rgba(221, 160, 221, 0.666);">
+       
+        <h4>Welcome {{fullName}}</h4>
+            <a style="color: aliceblue;" routerLink="/orderList"> Orders</a>    
+           <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button>   
+    </div>
+
+    </header>
+    <br><br><br>
+<ng-container *ngIf="cartBadge!=0">
+    <div class="container mt-5">
+    <div class="container">
+        <div class="card-table">
+            <div class="cartItems">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr >
+                            <th>SL #</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Item Price</th>
+                            <th>Total Item Cost</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of itemList; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.product.productName}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.product.price}}</td>
+                            <td>{{item.total_item_cost}}</td>
+                            <td><button class="btn btn-danger" (click)="deleteItem(item.itemId)"><i class="fas fa-trash"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                            
+                            <td><button routerLink="/customer" class="btn btn-primary">Add More</button></td>
+                            <td><button routerLink="/checkout" class="btn btn-success" (click)="setAmount()">Checkout</button></td>
+                            <td><strong>Grand Total : Rs{{grandTotal}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</ng-container>
+
+<ng-container *ngIf="cartBadge==0">
+    <div class="container">
+        <div class="card">
+            <div class="card-title">My Cart</div>
+            
+    
+        </div>
+    
+        <div class="center">
+            <h5>Your Cart is Empty</h5>
+            <br>
+            <button routerLink="/customer" class="btn btn-primary" >Products List</button>
+    
+        </div>
+          
+    </div>
+</ng-container>

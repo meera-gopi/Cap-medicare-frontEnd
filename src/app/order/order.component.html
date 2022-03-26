@@ -1,0 +1,41 @@
+<header>
+    
+    <div class="navbar align-items-center d-flex " style="background-color: rgba(221, 160, 221, 0.666);">
+           <h4>Welcome {{fullName}}</h4>
+            <a style="color: aliceblue; right:20%" href="#"> Orders</a>    
+           <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button>   
+    </div>
+
+</header>
+
+<br><br><br>
+
+<div class="container">
+
+  <ng-container *ngIf="!(orderList.length===0)">
+
+    <div class="row" *ngFor="let ord of orderList">
+
+    <div class="card" >
+      <h5 class="card-header">{{ord.orderId}}</h5>
+      
+    </div>
+  </div>
+
+  </ng-container>
+
+  <ng-container *ngIf="(orderList.length===0)">
+
+  
+
+    <div class="card" >
+      <h5 class="card-header"> No Orders Yet</h5>
+      <button class="btn btn-primary" routerLink="/customer">Grab Something</button>
+      
+    </div>
+  
+
+  </ng-container>
+  
+</div>
+

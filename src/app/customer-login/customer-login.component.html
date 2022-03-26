@@ -1,0 +1,145 @@
+
+<header>
+    
+    <div class="navbar align-items-center d-flex " style="background-color: rgba(221, 160, 221, 0.666);">
+           <h4>Welcome {{fullName}}</h4>
+            <a style="color: aliceblue;" routerLink="/orderList"> Orders</a>    
+           <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button>   
+    </div>
+
+    <div class="navbar" style="background-color: cornflowerblue;" >
+        <div class="navbar-brand align-items-center d-flex">
+           
+            <strong style ="font-size:30px; color:aliceblue">Medicare</strong>
+            <div class="form-group">
+                <input type="text" class="form-control"  [(ngModel)]="searchText" (keyup)="search($event)" placeholder="Search Here">
+            </div>
+            
+            <span class="fas fa-search search-icon"></span>
+
+               
+            
+        </div>
+        <button class="btn btn-primary" (click)="sendBadgeAndOrder()" >
+            <a  id="cart1" >
+            <i style="font-size:30px;" class="fas fa-shopping-cart"></i> </a>
+            <div style="font-size:10px;" id="cartItems" class="badge bg-info">{{badge}}</div>
+
+        </button>
+    </div>
+</header>
+
+<main>
+    <div class="container-fluid mt-3">
+
+        <div class="container d-flex">
+            <div class="item">
+                <a href=""> All Products</a>           
+            </div>
+            <div class="item">
+                <a href=""> Medicines</a>
+            </div>
+            
+            <div class="item">
+                <a href=""> Supplements</a>
+            </div>
+            
+        </div>
+
+       
+        
+</div>
+<div class="container">
+
+    <table class=table>
+        <thead>
+            <tr>
+                <th scope="col"> Product Id </th>
+                
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">ProductName</th>
+                <th scope='col'>SellerName</th>
+                <th scope='col'>ProductCategory</th>
+                <th scope='col'>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prd of productsList |filter:searchTerm:'productName'">
+                <td>{{prd.prodId}}</td>
+                
+                <td>{{prd.description}}</td>
+                <td>{{prd.price}}</td>
+                <td>{{prd.productName}}</td>
+                <td>{{prd.sellerName}}</td>           
+                <td>{{prd.category.description}}</td>            
+                <td>             
+                    <button class="btn btn-info" (click)="addToCart(custLogedIn.id,prd.prodId)">Add To Cart</button>                   
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>      
+        
+</main>
+
+
+
+<!--<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <h1>Welcome {{fullName}}</h1>
+        <div class="d-flex">
+            
+            <button type="button" *ngIf="!isUserLogedIn" class="btn btn-primary" (click)="onClickLogin()" >Login</button>
+            <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="Products">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Orders">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="help">Support</a>
+        </li>
+      </ul>
+</div>-->
+
+<!--<div class="container">
+    <div class="header-container">
+        <header>
+            <h1>Welcome {{fullName}}</h1>
+            <nav>
+                <ul>
+                    <li><button type="button" *ngIf="!isUserLogedIn" class="btn btn-primary" (click)="onClickLogin()" >Login</button></li>
+                    <li><button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button></li>
+                    <li></li>
+                </ul>
+            </nav>
+        </header>
+
+    </div>
+    <div class="main-container">
+        <div id="content"></div>
+        <div id="side-Menu">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="Products">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="help">Support</a>
+                </li>
+              </ul>
+        </div>
+    </div>
+    <div class="footer-container"></div>
+ </div> -->
+

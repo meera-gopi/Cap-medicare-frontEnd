@@ -1,0 +1,10 @@
+.center {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    transform: translate(-60%,-60%);
+    text-align: left;
+    padding: 25px;
+    font-weight: 100;
+
+}

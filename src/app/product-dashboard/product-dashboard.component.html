@@ -1,0 +1,111 @@
+<nav class="navbar navbar-light" style="background-color: rgba(221, 160, 221, 0.666);">
+    <div class="container-fluid">
+        <h1>Welcome {{fullName}} </h1>
+        <div class="d-flex">
+          <button type="button" class="btn btn-primary" (click)="onClickProfile()" >User Profile</button>
+          <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary mx-3" (click)="onClickLogOut()" >LogOut</button>
+            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
+            
+        </div>
+    </div>
+
+</nav>
+
+<div class="container mt-3">
+
+<table class=table>
+    <thead>
+        <tr>
+            <th scope="col"> Product Id </th>
+            <th scope="col">Active</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">ProductName</th>
+            <th scope='col'>SellerName</th>
+            <th scope='col'>ProductCategory</th>
+            <th scope='col'>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prd of productsList">
+            <td>{{prd.prodId}}</td>
+            <td><input class="form-check-input"  type="checkbox" id="flexSwitchCheckChecked" checked ={{prd.active}}></td>
+            <td>{{prd.description}}</td>
+            <td>{{prd.price}}</td>
+            <td>{{prd.productName}}</td>
+            <td>{{prd.sellerName}}</td>           
+            <td>{{prd.category.description}}</td>            
+            <td>             
+                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editProduct(prd)" >Edit</button>
+                <button class="btn btn-danger mx-3" (click)="deleteProduct(prd.prodId)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+<div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ProductName Details</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue" (ngSubmit)="addProduct()">
+                <div class="mb-3">
+                  <label for="productName" class="form-label">ProductName</label>
+                  <input type="text" formControlName="productName" class="form-control" id="productName" >
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" formControlName="price" class="form-control" id="price">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="sellerName" class="form-label">SellerName</label>
+                    <input type="text" formControlName="sellerName" class="form-control" id="sellerName">
+                    
+                  </div>
+                <div class="mb-3">
+                  <label for="prodDescription" class="form-label">Description</label>
+                  <input type="text" formControlName="description" class="form-control" id="prodDescription">
+                </div>
+
+
+                <div class="mb-3">
+                  <label for="productCategoryId" class="form-label">Product Category</label>
+                    <select  class="form-select" formControlName="productCategoryId">
+                      <option selected>ProductCategory</option>
+                      <option value=1>AntiBiotics</option>
+                      <option value=2>Antiseptics</option>
+                      <option value=3>Antipyrecics</option>
+                      <option value=4>Analgesics</option>
+                      <option value=5>Supplements</option>
+                    </select>                    
+                </div>
+
+                <div class="form-check form-switch mb-3" >
+                  <input class="form-check-input" formControlName="active" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
+                </div>
+
+                <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning mx-3" (click)="updateProduct()">Update</button>
+
+                 <button type="submit" class="btn btn-primary mx-3">Add</button>
+
+              </form>
+        </div>
+        <div class="modal-footer">
+          
+          
+        </div>
+      </div>
+    </div>
+  </div> 

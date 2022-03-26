@@ -1,0 +1,106 @@
+<nav class="navbar navbar-light" style="background-color: rgba(221, 160, 221, 0.666);">
+    <div class="container-fluid">
+        <h1>Welcome {{fullName}}</h1>
+        <div class="d-flex">
+            
+            <button type="button" *ngIf="!isUserLogedIn" class="btn btn-primary" (click)="onClickLogin()" >Login</button>
+            <button type="button" *ngIf="isUserLogedIn" class="btn btn-primary" (click)="onClickLogOut()" >LogOut</button>
+        </div>
+    </div>
+
+</nav>
+
+
+<div class="container mt-5"> 
+
+  <br>
+  <br>
+  <br>
+    <h3 class="display-5">Product Management</h3>
+    <p class="lead">Click the below button to view Product Management section</p>
+    <hr class="my-4">
+   
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" routerLink="/product" role="button">Product View</a>
+    </p>
+ 
+  
+</div>
+
+
+
+
+
+<!--<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+<table class="table" aria-hidden="true" mt-3>
+    <thead>
+        <tr>
+            <th scope="col"> Employee Id </th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">email</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="d-flex">
+                <button class="btn btn-info">Edit</button>
+                <button class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+          
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="inputFirstName" class="form-label">FirstName</label>
+                  <input type="text" class="form-control" id="inputFirstName" >
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="inputLastName" class="form-label">LastName</label>
+                    <input type="text" class="form-control" id="inputLastName">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="userName" class="form-label">UserName</label>
+                    <input type="text" class="form-control" id="userName">
+                    
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email">
+                    
+                  </div>
+
+              </form>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary">Save Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->

@@ -1,0 +1,39 @@
+.card {
+    height: 60vh;
+    padding: 20px;
+    margin: 30px;
+    
+
+ }
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-60%,-60%);
+    text-align: center;
+    
+
+}
+
+.btn{
+    position: relative;
+    padding-bottom: 5px;
+}
+
+
+
+.card-table{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    min-width: none;
+    word-wrap: break-word;
+    background-color:rgb(170, 207, 237);
+    background-clip: border-box;
+    border: 1px solid #000000;
+    border-radius: 0.25rem;
+    
+    
+   
+}

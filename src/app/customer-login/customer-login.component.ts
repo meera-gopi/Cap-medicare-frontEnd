@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 import {DatePipe, formatDate, getLocaleDateFormat, NgPluralCase} from '@angular/common';
 import { __assign } from 'tslib';
 
-
-
 @Component({
   selector: 'app-customer-login',
   templateUrl: './customer-login.component.html',
@@ -37,9 +35,6 @@ export class CustomerLoginComponent implements OnInit {
   datepipe: DatePipe = new DatePipe('en-US')
   formattedDate :Date=new Date(Date.now());
   
-
-
-
   constructor(private api : ApiService, private router:Router) { }
 
   ngOnInit(): void {
@@ -58,16 +53,12 @@ export class CustomerLoginComponent implements OnInit {
 
   }
 
-
   //Search
 
   search(event :any){
     this.searchTerm=(event.target as HTMLInputElement).value;
    // this.api.search.next(this.searchText);
-   
-
-
-  }
+     }
 
 //Logout Feature
   onClickLogOut(){
@@ -80,10 +71,8 @@ export class CustomerLoginComponent implements OnInit {
   }) 
   }
 
-
   //Add to cart
  
-
   addToCart(id:number,prdId:number){
 
     console.log(prdId);
@@ -125,7 +114,7 @@ export class CustomerLoginComponent implements OnInit {
 //http call for adding item
   addItem(items:IOrdItemsSave){
     this.api.addItems(items).subscribe((response:any)=>{
-      if(response.status==200){
+      if(response.status===200){
         
       }
       else{

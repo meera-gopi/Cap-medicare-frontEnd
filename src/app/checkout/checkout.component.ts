@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
   setPayment(){
     this.payment=true;
     this.api.updatePaymentStatus().subscribe((response:any)=>{
-      if (response.status==200){
+      if (response.status===200){
         'Order Completed'
       }
     })

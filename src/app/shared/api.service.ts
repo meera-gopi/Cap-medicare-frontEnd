@@ -62,8 +62,8 @@ updateProductStatus(id:number,stat:boolean){
 }
 
 //update Product
-updateProductInfo(data:IProduct){
-  return this.http.put(`${this.productPost}/updateProductInfo`,data,{observe:"response",responseType:"text"});
+updateProductInfo(data:IProduct,id:number){
+  return this.http.put(`${this.productPost}/updateProductInfo/${id}`,data,{observe:"response",responseType:"text"});
 }
 
 //HTTP Services - Employee

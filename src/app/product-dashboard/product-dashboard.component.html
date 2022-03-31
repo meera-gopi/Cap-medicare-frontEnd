@@ -29,7 +29,7 @@
     <tbody>
         <tr *ngFor="let prd of productsList">
             <td>{{prd.prodId}}</td>
-            <td><input class="form-check-input"  type="checkbox" id="flexSwitchCheckChecked" checked ={{prd.active}}></td>
+            <td><input class="form-check-input"  type="checkbox" id="flexSwitchCheckChecked" checked ={{prd.active}} (click)="updateProductStatus(prd.prodId,!prd.active)"></td>
             <td>{{prd.description}}</td>
             <td>{{prd.price}}</td>
             <td>{{prd.productName}}</td>

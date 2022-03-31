@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light" style="background-color: rgba(221, 160, 221, 0.666);">
     <div class="container-fluid">
-        <h1>Welcome {{fullName}}</h1>
+        <h1 id="title">Welcome {{fullName}}</h1>
         <div class="d-flex">
             
             <button type="button" *ngIf="!isUserLogedIn" class="btn btn-primary" (click)="onClickLogin()" >Login</button>

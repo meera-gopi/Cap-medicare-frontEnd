@@ -21,7 +21,7 @@ export class ProductDashboardComponent implements OnInit {
   ack !:any;
   productsList !:IProduct[];
   productToUpdate !: IProduct;
-  id_prd_to_update!:number;
+  id_prd_to_update:number=0;
   constructor(private formBuilder: FormBuilder, private api : ApiService,private router :Router) { }
 
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class ProductDashboardComponent implements OnInit {
     console.log(this.formValue.value);
     this.api.postProduct(this.formValue.value).subscribe((response: { status: any; })=>{
       
-      if(response.status=="OK")
+      if(response.status===200)
       {
         alert("Product Saved Successfully");
         let btref=document.getElementById("cancel");
@@ -91,7 +91,7 @@ this.api.getAllProducts().subscribe(products=>{
 deleteProduct(id:number){
 this.api.deleteProduct(id).subscribe((response:any)=>{
   console.log(response);
-  if(response.status==200){
+  if(response.status===200){
     alert('The Product is removed');
     this.getAllProducts();
 
@@ -107,7 +107,7 @@ this.api.deleteProduct(id).subscribe((response:any)=>{
 updateProductStatus(id:number,stat:boolean){
   return this.api.updateProductStatus(id,stat).subscribe((response:any)=>{
     console.log(response);
-    if(response.status==200){
+    if(response.status===200){
       alert('Product status updated');
       this.getAllProducts();
     }
@@ -141,22 +141,22 @@ updateProduct(){
   this.productToUpdate=this.formValue.value;
   this.productToUpdate.prodId=this.id_prd_to_update;
   console.log(this.productToUpdate);
+setTimeout(()=>{this.api.updateProductInfo(this.productToUpdate,this.id_prd_to_update).subscribe((response:any)=>{
 
-  this.api.updateProductInfo(this.productToUpdate).subscribe((response:any)=>{
+  console.log(response);
+  if(response.status===200){
+    alert('product info updated');
+    let btref=document.getElementById("cancel");
+      btref?.click();
+      this.reset();
 
-    console.log(response);
-    if(response.status==200){
-      alert('product info updated');
-      let btref=document.getElementById("cancel");
-        btref?.click();
-        this.reset();
+  }
+  else{
+    alert('unable to update product info');
+  }
 
-    }
-    else{
-      alert('unable to update product info');
-    }
-
-  })
+})},1500)
+  
 
 }
 

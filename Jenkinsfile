@@ -33,7 +33,7 @@ node(){
     }
 }
 
-node('awsdepnode') {
+node('awsnode') {
     echo 'Unstash'
     unstash 'buildArtifacts'
     echo 'Artifacts copied'

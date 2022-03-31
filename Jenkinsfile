@@ -19,7 +19,7 @@ node(){
     }
 
     stage('Package Build') {
-        sh "tar -zcvf bundle.tar.gz dist/medicareApp/"
+        sh "tar -zcvf bundle.tar.gz dist/medicare-app/"
     }
 
     stage('Artifacts Creation') {
@@ -33,7 +33,7 @@ node(){
     }
 }
 
-node('awsnode') {
+node('awsdepnode') {
     echo 'Unstash'
     unstash 'buildArtifacts'
     echo 'Artifacts copied'

@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class CustSignUpComponent implements OnInit {
 
   public signUpForm !: FormGroup;
-  private custurl = 'http://localhost:8090/customer';
+  private custurl = 'http://ec2-35-172-135-50.compute-1.amazonaws.com:8090/medicare';
   constructor(private formBuilder : FormBuilder , private http : HttpClient, private router : Router) { }
 
   ngOnInit(): void {

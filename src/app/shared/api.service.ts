@@ -24,8 +24,8 @@ import { IOrder } from '../order/order.model';
 export class ApiService {
 
   //url for REST Api
-   private productPost: string='http://localhost:8090/product';
-   baseURL='http://localhost:8090';
+   private productPost: string='http://ec2-35-172-135-50.compute-1.amazonaws.com:8090/medicare/product';
+   baseURL='http://ec2-35-172-135-50.compute-1.amazonaws.com:8090/medicare';
   
 //Component Data transfer Login to Employee Dashboard
 
